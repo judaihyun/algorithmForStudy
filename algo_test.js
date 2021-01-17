@@ -315,26 +315,26 @@ describe('프로그래머스 테스트 - level1', function () {
           let count = 0;
           for(let idx = 0; idx < progresses.length; ++idx){
             progresses[idx] += speeds[idx];
-            // if(progresses[idx] < 100) progresses[idx] += speeds[idx];
-            while(progresses[0] > 99){
-              // console.log(`before progresses : ${progresses}`)
-              progresses.shift();
-              speeds.shift();
-              // console.log(`after progresses : ${progresses}`)
-              count++;
-              // if(progresses.length < 1) return;
-            }
           }
+          console.log(progresses)
+          while(progresses[0] > 99){
+            progresses.shift();
+            speeds.shift();
+            count++;
+          }
+          
           if(count > 0) answer.push(count);
         }
 
-
+        console.log(answer);
         return answer;
       }
 
       it('sol([93,30,55],[1,30,5]) => [2,1]', ()=>{
         expect(solution([93,30,55],[1,30,5])).toEqual([2,1]);
-        expect(solution([95,90,99,99,80,99],[1,1,1,1,1,1])).toEqual([1,3,2]);
+        // expect(solution([95,90,99,99,80,99],[1,1,1,1,1,1])).toEqual([1,3,2]);
+        // expect(solution([99,1,99,1],[1,1,1,1])).toEqual([1,3]);
+        // console.log(solution([99,1,99,1],[1,1,1,1]));
       })
 
 
