@@ -299,14 +299,44 @@ describe('프로그래머스 테스트 - level1', function () {
         console.log(result);
         return result;
       }
-/*
       it('sol([sun,bed,car],1 => [car,bed,sun]', ()=>{
         expect(solution(['sun','bed','car'],1)).toEqual(['car','bed','sun']);
       })
-      */
-      it('sol([abce,abcd,cdx],2 => [abcd,abce,cdx]', ()=>{
-        expect(solution(['abce','abcd','cdx'],2)).toEqual(['abcd','abce','cdx']);
+
+    });
+
+    describe('[코딩테스트연습] - 스택/큐',()=>{
+
+      function solution(progresses, speeds){
+        const answer = [];
+
+        while(progresses.length > 0){
+          
+          let count = 0;
+          for(let idx = 0; idx < progresses.length; ++idx){
+            progresses[idx] += speeds[idx];
+            // if(progresses[idx] < 100) progresses[idx] += speeds[idx];
+            while(progresses[0] > 99){
+              // console.log(`before progresses : ${progresses}`)
+              progresses.shift();
+              speeds.shift();
+              // console.log(`after progresses : ${progresses}`)
+              count++;
+              // if(progresses.length < 1) return;
+            }
+          }
+          if(count > 0) answer.push(count);
+        }
+
+
+        return answer;
+      }
+
+      it('sol([93,30,55],[1,30,5]) => [2,1]', ()=>{
+        expect(solution([93,30,55],[1,30,5])).toEqual([2,1]);
+        expect(solution([95,90,99,99,80,99],[1,1,1,1,1,1])).toEqual([1,3,2]);
       })
+
 
     })
   });
