@@ -26,5 +26,36 @@ describe('프로그래머스 연습문제 - level1', function () {
 
 });
 
+describe('제일 작은 수 제거하기', function(){
+  function solution(arr) {
+    var answer = [];
+    if(arr.length < 2) return [-1];
+    
+    let min = arr[0];
+    for(let i = 0; i < arr.length; i++){
+      if(min > arr[i]){
+        min = arr[i];
+      }
+    }
+
+    arr.forEach(i=>{
+      if(i !== min)  answer.push(i);
+    })
+    console.log(answer);
+    return answer;
+  }
+
+  it('sol([4,3,2,1] => [4,3,2]', ()=>{
+    expect(solution([4,3,2,1])).toEqual([4,3,2]);
+  }),
+  it('sol([10] => [-1]', ()=>{
+    expect(solution([10])).toEqual([-1]);
+  }),
+  it('sol([7,10,2,3] => [7,10,3]', ()=>{
+    expect(solution([7,10,2,3])).toEqual([7,10,3]);
+  })
+  
+});
+
 
 
