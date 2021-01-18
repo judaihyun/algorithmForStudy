@@ -337,8 +337,9 @@ describe('프로그래머스 테스트 - level1', function () {
         // console.log(solution([99,1,99,1],[1,1,1,1]));
       })
 
-
     })
+
+    describe('[연습문제 level 1] - ')
   });
 
 
