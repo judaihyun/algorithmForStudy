@@ -57,5 +57,87 @@ describe('제일 작은 수 제거하기', function(){
   
 });
 
+describe('위장',()=>{
+  function solution(clothes){
+    let answer = 1;
+    const obj = {};
+
+    clothes.forEach(i=>{
+      const category = i[1];
+      if(obj[category]){
+        obj[category] += 1;
+      }else{
+        obj[category] = 1;
+      }
+    })
+
+
+    for(const item in obj){
+      /*
+        경우의 수
+        - 1번의 경우, headgear : 2, eyewear : 1 이므로
+        2 * 1 : 2개라고 생각할 수 있으나, headgear/eyewear만 입는 경우도 
+        생각해야하므로 각 + 1을 해주고, 모든 의상을 안입는경우는 없으므로 -1;
+
+        *** headgear or eyewear 중 하나만 입는다는게 왜 +1 ?? ***
+
+        - 최종적으로 모든 의상을 안입는경우는 없으므로 -1
+      */
+      answer *= obj[item] + 1; 
+    }
+
+
+    console.log(obj);
+    console.log(`answer : ${answer}`);
+
+    return answer - 1;
+  }
+
+  it('sol([[yellow_hat, headgear], [blue_sunglasses, eyewear], [green_turban, headgear]])',()=>{
+    solution([
+      ['yellow_hat', 'headgear'], 
+      ['blue_sunglasses', 'eyewear'], 
+      ['green_turban', 'headgear']]);
+    solution([
+      ['crow_mask','face'],
+      ['blue_sunglasses','face'],
+      ['smoky_makeup','face']
+    ])
+  })
+});
+
+describe('정렬', ()=>{
+
+  function solution(numbers){
+    const answer = 0;
+    const arr = [];
+    const size = numbers.length;
+
+    var a = numbers.sort(function(a,b){
+      return a - b;
+    })
+    var b = a.sort(function(a,b){
+      return b - a;
+    });
+
+
+    console.log(a);
+    console.log(b);
+
+    for(let i = 0; i < size; i++){
+      for(let j = 0; j < size; j++){
+
+      }
+    }
+
+    console.log(arr);
+    return answer;
+  }
+
+  it('가장 큰 수',()=>{
+    solution([6,10,2]);
+  })
+})
+
 
 
